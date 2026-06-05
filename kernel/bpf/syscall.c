@@ -1160,6 +1160,7 @@ static int map_update_elem(union bpf_attr *attr)
 
 	err = bpf_map_update_value(map, f, key, value, attr->flags);
 
+free_value:
 	if (value != value_onstack)
 		kvfree(value);
 free_key:
